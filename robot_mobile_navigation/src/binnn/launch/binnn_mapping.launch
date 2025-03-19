@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find binnn)/launch/binnn_bringup.launch" />
+    <node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" output="screen" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find binnn)/cfg/mapping_config.rviz" required="true" />
+</launch>

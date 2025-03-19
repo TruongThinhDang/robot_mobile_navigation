@@ -1,0 +1,8 @@
+<launch>
+    <include file="$(find binnn)/launch/binnn_bringup.launch" />
+    <include file="$(find binnn)/launch/binnn_navigation.launch" />
+    <include file="$(find binnn)/launch/amcl.launch"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find binnn)/cfg/navigation_config.rviz" required="true" />
+    <arg name="map_file" default="$(find binnn)/map/map.yaml"/>
+    <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file) "/>
+</launch>
